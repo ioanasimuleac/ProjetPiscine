@@ -6,3 +6,79 @@
 button{
 	cursor : pointer;
 }
+
+.c-pointer{
+	cursor : pointer;
+}
+
+.loadertext{
+	text-align: center;
+}
+
+.loadergif{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.italique {
+	font-style: italic;
+}
+
+.editeur-action{
+	max-width: 125px !important;
+}
+
+.text-secondary-2{
+	color : #bdbdbd;
+}
+
+.padd-edit{
+	padding : 0;
+}
+
+#creation-editeur label, #creation-festival label, #creation-comporter label, #creation-suivi label, #update-suivi label, #creation-contact label, #creation-jeu label, #creation-zone .label-marged, #creation-reservation label, #update-reservation label, #connexion label, #creation-utilisateur label, #modification-utilisateur label{
+	display: block;
+	margin: 8px 0px 0px;
+}
+
+#creation-editeur input, #creation-festival input, #creation-comporter input, #creation-suivi input, #update-suivi input, #creation-contact input, #creation-jeu input, #creation-zone .input-centered, #creation-reservation input, #creation-reservation textarea, #update-reservation input, #update-reservation textarea, #connexion input, #creation-utilisateur input, #modification-utilisateur input{
+	width: 100%;
+}
+
+.center-block{
+	display: block !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn-fav{
+	background-color: white;
+	padding: 0px !important;
+}
+
+.logo{
+	max-width: 80%;
+	margin-bottom: 15px;
+}
+
+.filter-container{
+	padding-left : 15px;
+	padding-right : 15px;
+	padding-bottom: 15px;
+}
+
+h1, h2, h3{
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.padd-edit:first-child {
+    padding-left: 0;
+}
+
+	.padd-edit{
+		padding-left : 15px;
+	}
+}

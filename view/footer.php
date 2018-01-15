@@ -1,10 +1,16 @@
-<footer class="sticky-footer">
+
+  <?php  if (isset($_SESSION['login'])) {?>
+    <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
           <small>Polytech 2017</small>
         </div>
       </div>
   </footer>
+<?php
+}
+?>
+  <script src="js/functions.js"></script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
