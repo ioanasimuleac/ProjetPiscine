@@ -47,6 +47,33 @@ public function getCPEditeur(){
   return $this->CPEditeur;
 }
 
+public function getIdCurrentReservation($anneeFestival){
+  $sql = "SELECT idReservation FROM reservation R JOIN editeur E ON E.idEditeur = R.idEditeur WHERE E.idEditeur = :idE AND R.anneeFestival = :annee";
+  $req_prep = model::$pdo->prepare($sql);
+  $values = array("idE" => $this->idEditeur, "annee" => $anneeFestival);
+  $req_prep->execute($values);
+  $rep = $req_prep->fetch();
+  return $rep['idReservation'];
+}
+
+public function getEtatFactureCurrentReservation($anneeFestival){
+  $sql = "SELECT etatFactureReservation FROM reservation R JOIN editeur E ON E.idEditeur = R.idEditeur WHERE E.idEditeur = :idE AND R.anneeFestival = :annee";
+  $req_prep = model::$pdo->prepare($sql);
+  $values = array("idE" => $this->idEditeur, "annee" => $anneeFestival);
+  $req_prep->execute($values);
+  $rep = $req_prep->fetch();
+  return $rep['etatFactureReservation'];
+}
+
+public function getReponseEditeurSuivi($anneeFestival){
+  $sql = "SELECT S.reponseEditeurSuivi FROM suivi S JOIN editeur E ON E.idEditeur = S.idEditeur WHERE E.idEditeur = :idE AND S.anneeFestival = :annee";
+  $req_prep = model::$pdo->prepare($sql);
+  $values = array("idE" => $this->idEditeur, "annee" => $anneeFestival);
+  $req_prep->execute($values);
+  $rep = $req_prep->fetch();
+  return $rep['reponseEditeurSuivi'];
+}
+
 /*public function getSomething(){
 return $this->something;
 }*/
@@ -66,6 +93,24 @@ public static function readAll(){
   $rep = model::$pdo->query($sql);
   $rep->setFetchMode(PDO::FETCH_CLASS, 'modelEditeur');
   return $rep->fetchAll();
+}
+
+public static function read(){
+  $sql = "SELECT * FROM editeur WHERE idEditeur = :idEd";
+  $req_prep = model::$pdo->prepare($sql);
+  $values = array("idEd" => $_GET['id']);
+  $req_prep->execute($values);
+  $rep = $req_prep->fetch();
+  return $rep;
+}
+
+public static function readParam($id){
+  $sql = "SELECT * FROM editeur WHERE idEditeur = :idEd";
+  $req_prep = model::$pdo->prepare($sql);
+  $values = array("idEd" => $id);
+  $req_prep->execute($values);
+  $rep = $req_prep->fetch();
+  return $rep;
 }
 
 public function create(){
